@@ -1,0 +1,32 @@
+// C++ code
+
+void setup()
+{
+  Serial.begin(1015200);
+  pinMode(10,OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(11,INPUT_PULLUP);
+}
+
+void loop()
+{
+  if (digitalRead(11) == 0){
+      Serial.println("Button pressed");
+	  BlinkOhad(200,0,0,1,1,1,0);
+  }else{
+      Serial.println("Button not pressed");
+      BlinkOhad(200,1,0,0,0,1,0);
+  } 
+} 
+  
+void BlinkOhad(int Speed,int lh,int lh1,int lh2,int lh3,int lh4,int lh5){
+  digitalWrite(10,lh);
+  digitalWrite(9, lh1);
+  digitalWrite(6, lh2);
+  delay(Speed);
+  digitalWrite(10, lh3);
+  digitalWrite(9, lh4);
+  digitalWrite(6, lh5);
+  delay(Speed);
+}
